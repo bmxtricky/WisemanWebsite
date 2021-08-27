@@ -6,13 +6,10 @@ export default class extends AbstractView {
     }
     async getHtml() {
         return `
-            <p style='background-color: rgba(61, 60, 61, 0.69);'>test
-            
-                            dadasd
-                            asdasd
-                            asd
-                            asd
-                            as      aqwdasdsa</p>
+        <img src='./images/nuggit.jpeg'>
+
+        <p style='background-color: rgba(61, 60, 61, 0.69);'>
+
         `;
     }
 }
