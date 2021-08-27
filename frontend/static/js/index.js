@@ -1,4 +1,7 @@
 import Home from './views/Home.js';
+import About from './views/About.js';
+import Shop from './views/shop.js';
+import Contact from './views/Contact.js';
 const navigateTo = url => {
     history.pushState(null, null, url);
     router();
@@ -7,9 +10,9 @@ const navigateTo = url => {
 const router = async () => {
     const routes = [
         {path: '/', view: Home},
-        {path: '/shop', view: () => console.log('shop')},
-        {path: '/about', view: () => console.log('about')},
-        {path: '/contact', view: () => console.log('contact')},
+        {path: '/shop', view: Shop},
+        {path: '/about', view: About},
+        {path: '/contact', view: Contact},
     ];
 
     const potentialMatches = routes.map(route => {
