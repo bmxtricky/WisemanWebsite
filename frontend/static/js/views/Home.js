@@ -6,10 +6,27 @@ export default class extends AbstractView {
     }
     async getHtml() {
         return `
-        <img src='./images/nuggit.jpeg'>
-
-        <p style='background-color: rgba(61, 60, 61, 0.69);'>
-
+        <style>
+        .img1{
+            display: flex;
+            width: 70%;
+            margin-left: 15%;
+            margin-top: 5%;
+            border-radius: 4px;
+            box-shadow: 0px 0px 15px 4px black;
+        }
+        .imgContainer{
+           background-color: rgba(5, 5, 5);
+        }
+        </style>
+        <div class="imgContainer">
+        <img class='img1' src='./images/nuggit.jpeg' alt='banner'>
+        </div>
+        
+        <div>
+        <p style='background-color: rgba(61, 60, 61, 0.05);'></p>
+        </div>
+        
         `;
     }
 }
