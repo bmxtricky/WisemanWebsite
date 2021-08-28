@@ -12,11 +12,8 @@ export default class extends AbstractView {
             width: 70%;
             margin-left: 15%;
             margin-top: 5%;
-            border-radius: 4px;
+            border-radius: 15px;
             box-shadow: 0px 0px 15px 4px black;
-        }
-        .imgContainer{
-           background-color: rgba(5, 5, 5);
         }
         </style>
         <div class="imgContainer">
@@ -24,7 +21,7 @@ export default class extends AbstractView {
         </div>
         
         <div>
-        <p style='background-color: rgba(61, 60, 61, 0.05);'></p>
+        <p></p>
         </div>
         
         `;

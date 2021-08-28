@@ -6,7 +6,12 @@ export default class extends AbstractView {
     }
     async getHtml() {
         return `
-            <p style='background-color: rgba(61, 60, 61, 0.69);'>test
+        <style>
+        p {
+            color: white;
+        }
+        </style>
+            <p>test
             
                            Hi this is my shop</p>
         `;

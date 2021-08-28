@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+    --gradient: linear-gradient(166deg, rgba(0,0,0,1) 13%, rgba(150,19,219,1) 55%, rgba(0,224,255,1) 100%);
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #24252A;    
+        
 }
 li, a, button, .bottom {
     font-family: "Montserrat", sans-serif;
@@ -53,9 +57,10 @@ button:hover {
     display: flex;
     margin-left: 7%;
     margin-right: 7%;
-    height: 60rem;
-    background-color: rgb(12, 12, 12);
+    height: 70rem;
+    background-color: rgba(0, 0, 0, 0.603);
     width: 86%;
+    max-width: 2000px;
     border-radius: 5px;
     box-shadow: 0px 0px 15px 2px black;
     margin-bottom: 30px;
@@ -72,5 +77,10 @@ button:hover {
 }
 .background{
     background: rgb(0,0,0);
-background: linear-gradient(166deg, rgba(0,0,0,1) 13%, rgba(150,19,219,1) 55%, rgba(0,224,255,1) 100%);
+    background-image: var(--gradient);
+}
+
+.maincontent {
+    display: flex;
+    justify-content: space-between;
 }
