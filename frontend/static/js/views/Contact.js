@@ -1,11 +1,11 @@
 import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
-    constructor() {
-        super();
-        this.setTitle('Contact');
-    }
-    async getHtml() {
-        return `
+  constructor() {
+    super();
+    this.setTitle("Contact");
+  }
+  async getHtml() {
+    return `
             <p>test
             
                             dadasd
@@ -14,5 +14,5 @@ export default class extends AbstractView {
                             asd
                             as      aqwdasdsa</p>
         `;
-    }
+  }
 }

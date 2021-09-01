@@ -1,11 +1,11 @@
 import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
-    constructor() {
-        super();
-        this.setTitle('Shop');
-    }
-    async getHtml() {
-        return `
+  constructor() {
+    super();
+    this.setTitle("Shop");
+  }
+  async getHtml() {
+    return `
         <style>
         p {
             color: white;
@@ -15,5 +15,5 @@ export default class extends AbstractView {
             
                            Hi this is my shop</p>
         `;
-    }
+  }
 }

@@ -1,62 +1,67 @@
-import Home from './views/Home.js';
-import About from './views/About.js';
-import Shop from './views/Shop.js';
-import Contact from './views/Contact.js';
+import Home from "./views/Home.js";
+import About from "./views/About.js";
+import Shop from "./views/Shop.js";
+import Contact from "./views/Contact.js";
 
-const pathToRegex = path => new RegExp('^' + path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)') + "$");
+const pathToRegex = (path) =>
+  new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
-const getParams =   match => {
-    const values = match.result.slice(1, 2);
-    const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
-    console.log(keys)
-    return Object.fromEntries(keys.map((key, i) => {
-        return [key, values[i]];
-    }));
-}
+const getParams = (match) => {
+  const values = match.result.slice(1);
+  const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(
+    (result) => result[1]
+  );
+  return Object.fromEntries(
+    keys.map((key, i) => {
+      return [key, values[i]];
+    })
+  );
+};
 
-const navigateTo = url => {
-    history.pushState(null, null, url);
-    router();
-}
+const navigateTo = (url) => {
+  history.pushState(null, null, url);
+  router();
+};
 
 const router = async () => {
-    console.log(pathToRegex("/about/:id"));
-    const routes = [
-        {path: '/', view: Home},
-        {path: '/shop', view: Shop},
-        {path: '/shop/:id', view: Shop},
-        {path: '/about', view: About},
-        {path: '/contact', view: Contact},
-    ];
+  console.log(pathToRegex("/about/:id/"));
+  const routes = [
+    { path: "/", view: Home },
+    { path: "/shop", view: Shop },
+    { path: "/shop/:id", view: Shop },
+    { path: "/about", view: About },
+    { path: "/contact", view: Contact },
+  ];
 
-    const potentialMatches = routes.map(route => {
-        return {
-            route: route,
-            result: location.pathname.match(pathToRegex(route.path))
-        };
-    });
-
-    let match = potentialMatches.find(potentialMatches => potentialMatches.result !== null);
-    if (!match) {
-        match = {
-            route: routes[0], 
-            isMatch: true
-        };
+  const potentialMatches = routes.map((route) => {
+    return {
+      route: route,
+      result: location.pathname.match(pathToRegex(route.path)),
     };
+  });
 
-    const view = new match.route.view(getParams(match));
+  let match = potentialMatches.find(
+    (potentialMatches) => potentialMatches.result !== null
+  );
+  if (!match) {
+    match = {
+      route: routes[0],
+      isMatch: true,
+    };
+  }
 
-    document.querySelector('#content').innerHTML = await view.getHtml();
+  const view = new match.route.view(getParams(match));
 
+  document.querySelector("#content").innerHTML = await view.getHtml();
 };
-window.addEventListener('popstate', router);
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.addEventListener('click', e => {
-        if (e.target.matches('[data-link]')) {
-            e.preventDefault();
-            navigateTo(e.target.href);
-            navigateTo(e.target.id);
-        }
-    })
-    router();
+window.addEventListener("popstate", router);
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (e) => {
+    if (e.target.matches("[data-link]")) {
+      e.preventDefault();
+      navigateTo(e.target.href);
+      navigateTo(e.target.id);
+    }
+  });
+  router();
 });
