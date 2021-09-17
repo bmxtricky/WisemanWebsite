@@ -13,15 +13,18 @@ export default class extends AbstractView {
             margin-left: 15%;
             margin-top: 5%;
             border-radius: 15px;
-            box-shadow: 0px 0px 15px 4px black;
+            box-shadow: inset 0px 0px 15px 4px black, 0px 0px 15px 4px black;
         }
+       
         </style>
+        <div>
         <div class="imgContainer">
-        <img class='img1' src='./images/nuggit.jpeg' alt='banner'>
+        <img class='img1' src='/images/nuggit.jpeg' alt='banner'>
         </div>
         
-        <div>
-        <p></p>
+        <div class="lowerContainer">
+         <p class="aboutMe"></p>
+        </div>
         </div>
         
         `;
